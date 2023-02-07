@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0DA6D2C-C284-4446-817B-49278D26AB78}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UberStrikeClassic.Realtime.Server.Game</RootNamespace>
+    <AssemblyName>UberStrikeClassic.Realtime.Server.Game</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\..\Desktop\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\UberStrike\GameServer\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExitGames.Logging.Log4Net">
+      <HintPath>..\..\..\PhotonServer\lib\ExitGames.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ExitGamesLibs">
+      <HintPath>..\..\..\PhotonServer\lib\ExitGamesLibs.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\PhotonServer\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon.SocketServer">
+      <HintPath>..\..\..\PhotonServer\lib\Photon.SocketServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonHostRuntimeInterfaces">
+      <HintPath>..\..\..\PhotonServer\lib\PhotonHostRuntimeInterfaces.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UberStrike.UnitySdk, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\References\UberStrike.UnitySdk.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\References\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActorStates\ActorState.cs" />
+    <Compile Include="ActorStates\ActorStateEnd.cs" />
+    <Compile Include="ActorStates\ActorStateKilled.cs" />
+    <Compile Include="ActorStates\ActorStateOverview.cs" />
+    <Compile Include="ActorStates\ActorStatePlaying.cs" />
+    <Compile Include="Common\GameActor.cs" />
+    <Compile Include="Common\GameServerConfig.cs" />
+    <Compile Include="Common\PickupItem.cs" />
+    <Compile Include="Common\PickupManager.cs" />
+    <Compile Include="Common\SpawnPointManager.cs" />
+    <Compile Include="Core\GlobalOperationListener.cs" />
+    <Compile Include="Core\UberStrok\BalancingLoopScheduler.cs" />
+    <Compile Include="Core\UberStrok\BaseTimer.cs" />
+    <Compile Include="Core\UberStrok\Countdown.cs" />
+    <Compile Include="Core\UberStrok\FixedTimer.cs" />
+    <Compile Include="Core\UberStrok\ILoop.cs" />
+    <Compile Include="Core\UberStrok\ILoopScheduler.cs" />
+    <Compile Include="Core\UberStrok\ITimer.cs" />
+    <Compile Include="Core\UberStrok\Loop.cs" />
+    <Compile Include="Core\UberStrok\LoopScheduler.cs" />
+    <Compile Include="Core\UberStrok\Timer.cs" />
+    <Compile Include="Events\BaseEvents.cs" />
+    <Compile Include="Events\GamePeerEvents.cs" />
+    <Compile Include="Events\GameRoomEvents.cs" />
+    <Compile Include="Events\GameRoomOperationEvents.cs" />
+    <Compile Include="Events\IRoomOperations.cs" />
+    <Compile Include="GameModeStates\GameModeState.cs" />
+    <Compile Include="GameModeStates\IModeState.cs" />
+    <Compile Include="GameModeStates\Infected\GameModeStateCountdown.cs" />
+    <Compile Include="GameModeStates\Infected\GameModeStateRunning.cs" />
+    <Compile Include="GameModeStates\Infected\GameModeStateWaiting.cs" />
+    <Compile Include="GameModeStates\Keys.cs" />
+    <Compile Include="LobbyRoomManager.cs" />
+    <Compile Include="Network\INetworkClassType.cs" />
+    <Compile Include="Network\NetworkClass.cs" />
+    <Compile Include="Network\NetworkMachine.cs" />
+    <Compile Include="Operations\GameOperationHandler.cs" />
+    <Compile Include="Operations\PeerOperationHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomStates\RoomState.cs" />
+    <Compile Include="RoomStates\RoomStateEnd.cs" />
+    <Compile Include="RoomStates\RoomStateRunning.cs" />
+    <Compile Include="RoomStates\RoomStateWaitingForPlayers.cs" />
+    <Compile Include="Rooms\DeathMatchRoom.cs" />
+    <Compile Include="GameLobby.cs" />
+    <Compile Include="Rooms\GameRoom.cs" />
+    <Compile Include="GameApplication.cs" />
+    <Compile Include="GamePeer.cs" />
+    <Compile Include="Rooms\InfectedRoom.cs" />
+    <Compile Include="Rooms\TeamDeathMatchRoom.cs" />
+    <Compile Include="State.cs" />
+    <Compile Include="Utility\PickupUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
