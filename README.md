@@ -1,17 +1,22 @@
-## Photon Realtime Server Startup without crashing
+# Photon Realtime Server Startup without crashing
 
 ### You must change the config file to reflect the correct location.
-- PhotonRealtimeServer/bin_Win64/PhotonServer.config
+- File: PhotonRealtimeServer\bin_Win64/PhotonServer.config
   
-# Change Game Server Application Type in Config
-# Type="UberStrikeClassic.Realtime.Server.Game.Server.GameServerApplication"
-# Needs to be changed to
-# Type="UberStrikeClassic.Realtime.Server.Game.GameApplication"
+Change Game Server Application Type in PhotonServer.config
+- OriginalPath: UberStrikeClassic.Realtime.Server.Game.Server.GameServerApplication
+- NewPath: UberStrikeClassic.Realtime.Server.Game.GameApplication
 
-## Create two folders for the compiled game files
-- CommServer/bin and GameServer/bin
+### Compile project 
+You may also need to change the output folder for compile
+- Right Click on UberStrikeClassic.Realtime.Server.Comm and select Build
+- Change output path to bin\Debug\
 
-# Get compiled files and place them into the bin folders.
-## You may also need to change the output folder for compile 
+- Right Click on UberStrikeClassic.Realtime.Server.Comm and select Build
+- Change output path to bin\Debug\
 
-- bin/Debug
+### Create two folders for the compiled game files
+- CommServer\bin
+- GameServer\bin
+
+Place the compiled files into their bin folders
